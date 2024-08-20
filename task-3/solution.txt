@@ -1,0 +1,38 @@
+cd ~
+mkdir project_files
+cd project_files
+mkdir reports  logs  data
+cd reports
+touch report1.md  report2.md
+cd ..
+cd logs
+touch system.log error.log file1.pdf file2.pdf
+cd ..
+cd data
+touch data.csv info.txt
+nano data.csv
+cd /home/VOLT/project_files/reports
+nano report1.md 
+cd /home/VOLT/project_files/logs
+nano system.log 
+tar -czf logs_backup.tar.gz * 
+mv logs_backup.tar.gz .. 
+cd ..
+tar -xzf logs_backup.tar.gz -C logs 
+find ~ -name "*.md"
+find . -name "*.log"
+find . -name "file1.pdf"
+find . -name "*.pdf"    
+find logs -type f  
+ln -s data/data.csv link_data.csv
+nano link_data.csv 
+cat data/data.csv 
+rm link_data.csv 
+touch summary.txt 
+echo "Summary Start">>summary.txt
+date >> summary.txt
+wc -l summary.txt | tee -a summary.txt 
+cat reports/report1.md | tee >(wc -w)
+wc -c logs/system.log >>summary.txt 
+find . | wc -l >> summary.txt 
+cat summary.txt
