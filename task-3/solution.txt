@@ -15,10 +15,10 @@ cd /home/VOLT/project_files/reports
 nano report1.md 
 cd /home/VOLT/project_files/logs
 nano system.log 
-tar -czf logs_backup.tar.gz * 
-mv logs_backup.tar.gz .. 
+tar -cf logs_backup.tar * 
+mv logs_backup.tar .. 
 cd ..
-tar -xzf logs_backup.tar.gz -C logs 
+tar -xf logs_backup.tar -C logs 
 find ~ -name "*.md"
 find . -name "*.log"
 find . -name "file1.pdf"
