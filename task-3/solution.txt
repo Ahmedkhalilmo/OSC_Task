@@ -22,7 +22,7 @@ tar -xf logs_backup.tar -C logs
 find ~ -name "*.md"
 find . -name "*.log"
 find . -name "file1.pdf"
-find . -name "*.pdf"    
+find . -iname "*.pdf"    
 find logs -type f  
 ln -s data/data.csv link_data.csv
 nano link_data.csv 
@@ -32,7 +32,7 @@ touch summary.txt
 echo "Summary Start">>summary.txt
 date >> summary.txt
 wc -l summary.txt | tee -a summary.txt 
-cat reports/report1.md | tee >(wc -w)
+wc -w reports/report1.md 
 wc -c logs/system.log >>summary.txt 
 find . | wc -l >> summary.txt 
 cat summary.txt
